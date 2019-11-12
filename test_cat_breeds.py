@@ -23,3 +23,8 @@ def test_list_of_cat_breeds_is_available(http_client):
 def test_list_of_cat_breeds(http_client):
     response = http_client.get('/api/cat_breed/')
     assert len(response.json) == 3
+
+
+def test_bengal_is_a_cat_breed_in_the_list(http_client):
+    response = http_client.get('/api/cat_breed/')
+    assert "Bengal" in response.json

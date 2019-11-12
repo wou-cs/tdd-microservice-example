@@ -15,6 +15,11 @@ def http_client():
     ctx.pop()
 
 
-def test_index_returns_200(http_client):
-    response = http_client.get('/')
+def test_list_of_cat_breeds_is_available(http_client):
+    response = http_client.get('/api/cat_breed/')
     assert response.status_code == 200
+
+
+def test_list_of_cat_breeds(http_client):
+    response = http_client.get('/api/cat_breed/')
+    assert len(response.json) == 3
